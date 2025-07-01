@@ -3,9 +3,9 @@ title: Install Exchange Server 2016 from scratch
 nav_order: 2
 ---
 
-# Install Exchange Server 2016 from scratch
+## Install Exchange Server 2016 from scratch
 
-# Requirements:
+## Requirements:
 At least 2 VMware or Hyper-V virtual machines. 3, if you want to add a client machine.
 
 * A custom domain (optional) 
@@ -17,12 +17,12 @@ At least 2 VMware or Hyper-V virtual machines. 3, if you want to add a client ma
 * Windows 10/11 for the client machine [Download Windows 11 ISO](https://www.microsoft.com/software-download/windows11?msockid=1e825a2dad9464f405984ef5ac92651d)
 
 
-# Create the VMs:
+## Create the VMs:
 For the DC, create a virtual machine with at least 8 GB of RAM, 2 CPU cores and 25 GB disk space. You can reduce the RAM to 4 GB once Windows Server is installed and promoted to DC if you do not have enough resources on the host machine.  
 
 For the Exchange Server, create a virtual machine with at least 8 GB (16 GB preferably) of RAM, 2 CPU cores and 50 GB of disk space.  
 
-# Setting up the Domain Controller 
+## Setting up the Domain Controller 
 For the purpose of this tutorial, we will be installing Windows 2016 Datacenter edition. Once Windows is installed, we need to add the Active Directory Domain Services role on the server. Follow the below steps in order:
 
 * Name the Server: Run sysdm.cpl and in the Computer Name tab click on Change. Enter a relevant name for the VM, example DC or DC1. Click Ok and restart the machine.
@@ -88,7 +88,7 @@ In case you already have ADDS setup with a different domain or have a .local dom
 
 ***
 
-# Installing Exchange Server
+## Installing Exchange Server
 
 Before we start installing Exchange on the VM, we'll need to do a couple other things:
 * Change the DNS server to the DC we previously created:
