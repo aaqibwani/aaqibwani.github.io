@@ -6,3 +6,10 @@ url: https://aaqibwani.github.io/
 
 aux_links:
   Template Repository: https://github.com/aaqibwani
+  
+defaults:
+  - scope:
+      path: "docs" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
