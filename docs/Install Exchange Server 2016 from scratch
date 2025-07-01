@@ -1,3 +1,8 @@
+---
+title: Configuration
+nav_order: 2
+---
+
 # Requirements:
 At least 2 VMware or Hyper-V virtual machines. 3, if you want to add a client machine.
 
