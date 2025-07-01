@@ -27,7 +27,7 @@ For the purpose of this tutorial, we will be installing Windows 2016 Datacenter 
 
 * Name the Server: Run sysdm.cpl and in the Computer Name tab click on Change. Enter a relevant name for the VM, example DC or DC1. Click Ok and restart the machine.
 
-<img src="https://github.com/user-attachments/assets/d1004f4c-7660-4a4f-ba32-4c3c87d436be" width=40% height=30%>
+![image](https://github.com/user-attachments/assets/d1004f4c-7660-4a4f-ba32-4c3c87d436be)
 
 
 * Configure IP settings: Open cmd and run ipconfig to list the details of your network. Now simultaneously open Network Connections by running ncpa.cpl. Double-click your network adapter and go to Properties. Then double-click on the Internet Protocol Version 4 and select use the following IP address and put the existing IP, subnet mask and gateway you got from the ipconfig command as shown below. Then in the Preferred DNS server put the loopback IP 127.0.0.1. This is to ensure that the IP does not change when we restart the VM, since this VM will also be our DNS server. 
@@ -37,41 +37,41 @@ For the purpose of this tutorial, we will be installing Windows 2016 Datacenter 
 
 * Install ADDS (Active Directory Domain Services) Role: To install AD, go to Server Manager > Manage > Add Roles and Features. In the dialog box, click next, Role based or feature based option will be pre-selected > Click Next. In the next page the current server will be already selected, keep it as it and click Next. In the Select Server roles, tick the checkbox for Active Directory Domain Services. 
 
-<img src="https://github.com/user-attachments/assets/bc683017-4ff9-4a95-af9b-099c282b3ae7" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/bc683017-4ff9-4a95-af9b-099c282b3ae7)
 
-<img src="https://github.com/user-attachments/assets/a7b0f983-3ece-4e06-86ec-5ffa1e5a10d8" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/a7b0f983-3ece-4e06-86ec-5ffa1e5a10d8)
 
-<img src="https://github.com/user-attachments/assets/7460393a-1139-4249-952e-9818bb242632" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/7460393a-1139-4249-952e-9818bb242632)
 
-<img src="https://github.com/user-attachments/assets/38d581dc-c35e-4603-bb4d-2ea3fb7400ad" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/38d581dc-c35e-4603-bb4d-2ea3fb7400ad)
 
-<img src="https://github.com/user-attachments/assets/853e0ff0-4315-4263-acd6-cfb87cde1c51" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/853e0ff0-4315-4263-acd6-cfb87cde1c51)
 
-<img src="https://github.com/user-attachments/assets/0f0a0dd0-7917-41db-8b1c-23e393a575c8" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/0f0a0dd0-7917-41db-8b1c-23e393a575c8)
 
-<img src="https://github.com/user-attachments/assets/8a55399f-ae9b-430c-bcd6-6100202df509" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/8a55399f-ae9b-430c-bcd6-6100202df509)
 
-<img src="https://github.com/user-attachments/assets/0953c71b-e5b3-4f47-87d8-58b929eaab97" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/0953c71b-e5b3-4f47-87d8-58b929eaab97)
 
-<img src="https://github.com/user-attachments/assets/a18321ab-8450-4733-a621-ead1978fecaf" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/a18321ab-8450-4733-a621-ead1978fecaf)
 
 * Here you need to add your domain that you own OR you can also add a .local domain. If you already have ADDS setup, you can add the UPN suffix. 
 
-<img src="https://github.com/user-attachments/assets/8de8802c-0685-4112-b5da-60ff15cfc72e" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/8de8802c-0685-4112-b5da-60ff15cfc72e)
 
-<img src="https://github.com/user-attachments/assets/4568448a-2a4c-4198-9eab-42a1d3c53868" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/4568448a-2a4c-4198-9eab-42a1d3c53868)
 
-<img src="https://github.com/user-attachments/assets/9c2c7510-4369-4ede-b5e2-6b220befff4a" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/9c2c7510-4369-4ede-b5e2-6b220befff4a)
 
-<img src="https://github.com/user-attachments/assets/c6f31b32-dbe8-47d3-992d-0e2853db461e" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/c6f31b32-dbe8-47d3-992d-0e2853db461e)
 
-<img src="https://github.com/user-attachments/assets/f38cc62c-f2e3-42c8-92fb-c1311c3fe3a8" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/f38cc62c-f2e3-42c8-92fb-c1311c3fe3a8)
 
-<img src="https://github.com/user-attachments/assets/49bcb210-db3d-40a0-9cbf-0dea01f17487" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/49bcb210-db3d-40a0-9cbf-0dea01f17487)
 
 Reboot the machine and login to the Domain:
 
-<img src="https://github.com/user-attachments/assets/d9567bbb-9182-46f6-ab09-c1d7b743a3de" width=50% height=30%>
+![image](https://github.com/user-attachments/assets/d9567bbb-9182-46f6-ab09-c1d7b743a3de)
 
 ![image](https://github.com/user-attachments/assets/52abb887-3c81-4c0e-80b4-a9957ad8b51a)
 
