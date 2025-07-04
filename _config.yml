@@ -15,7 +15,7 @@ defaults:
       layout: "default"
 color_scheme: dark
 
-logo: "/assets/images/just-the-docs.png"
+logo: "/assets/images/logo.png"
 favicon_ico: "/assets/images/favicon.ico"
 
 callouts_level: quiet # or loud
