@@ -3,7 +3,7 @@ title: Install Exchange Server 2016 from scratch
 nav_order: 2
 ---
 
-## Install Exchange Server 2016 from scratch
+# Install Exchange Server 2016 from scratch
 
 ## Requirements:
 At least 2 VMware or Hyper-V virtual machines. 3, if you want to add a client machine.
