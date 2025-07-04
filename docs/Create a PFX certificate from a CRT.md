@@ -8,10 +8,6 @@ nav_order: 5
 
 2. Rename both files to have the same name (but different extension):
 
-{{certificate_name}}.crt
-
-{{certificate_name}}.key
-
 Example:
 
  mail.crt --> CRT file
