@@ -13,6 +13,7 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+      
 color_scheme: dark
 
 logo: "/assets/images/logo.png"
