@@ -16,9 +16,11 @@ defaults:
 color_scheme: dark
 
 logo: "/assets/images/logo.png"
+
 favicon_ico: "/assets/images/favicon.ico"
 
 callouts_level: quiet # or loud
+
 callouts:
   highlight:
     color: yellow
