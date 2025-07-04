@@ -186,7 +186,5 @@ otocolLoggingLevel verbose
 
 ![image](https://github.com/user-attachments/assets/1e5e2d93-417b-4b46-a5d7-fb3df23951dd)
 
-{: .note-title }
-> REMEMBER
->
+{: .important }
 > Update the certificate on all the Exchange servers as well as on the Load Balancer
