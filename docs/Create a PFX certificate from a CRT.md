@@ -1,7 +1,10 @@
-
+---
+title: Create a PFX certificate from a CRT
+nav_order: 5
+---
 # Create a PFX certificate from a CRT and private key using Windows
 
-1. Create a new folder and place you .crt and .key file in it. _If the key file is a .txt file, change extension to .key._
+1. Create a new folder and place your .crt and .key file in it. _If the private key file is a .txt file, change extension to .key._
 
 2. Rename both files to have the same name (but different extension):
 
@@ -11,13 +14,13 @@
 
 Example:
 
- mySite.crt
-
- mySite.key
+ mail.crt --> CRT file
+ 
+ mail.key --> private key
 
 3. Open Command Prompt and navigate to the folder and run:
 
-            certutil -mergepfx mySite.crt mySite.pfx
+            certutil -mergepfx mail.crt mail.pfx
 
 
 {: .important }
