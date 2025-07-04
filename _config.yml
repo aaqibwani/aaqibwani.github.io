@@ -39,11 +39,6 @@ callouts:
     color: red
 
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-github-metadata
-  - jekyll-include-cache
-  - jekyll-sitemap
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
