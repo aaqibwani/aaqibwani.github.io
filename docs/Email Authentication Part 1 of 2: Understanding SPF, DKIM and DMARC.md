@@ -1,11 +1,12 @@
-
+---
+title: Email Authentication Part 1 of 2: Understanding SPF, DKIM and DMARC
+nav_order: 7
+---
 # Email Authentication Part 1 of 2: Understanding and setting up SPF, DKIM and DMARC in Exchange Online M365
 
-## What is Email Authentication?
-Email authentication is like a security check for emails. Just as you show an ID to prove who you are, email authentication helps prove that an email is really from the person or company it says it's from.
+## What is Email Authentication and we need it?
+Email authentication is like a security check for emails. Just as you show an ID to prove who you are, email authentication helps prove that an email is really from the person or company it says it's from. When you get an email, you want to be sure it's from a trusted source, not a scammer pretending to be someone else. Email authentication helps with this by checking the email's "ID" using several methods. If the email passes the check, it's more likely to be genuine. If it fails, it might be a fake or spam email.
 
-## Why do we need it?
-When you get an email, you want to be sure it's from a trusted source, not a scammer pretending to be someone else. Email authentication helps with this by checking the email's "ID" using several methods. If the email passes the check, it's more likely to be genuine. If it fails, it might be a fake or spam email.
 Without email authentication, it would be easy for scammers to send fake emails that look like they come from your bank, company, or friends. These fake emails could trick you into giving away personal information, clicking on harmful links, or downloading viruses. Authentication helps protect you from these threats by ensuring that emails are really from who they say they are.
 
 SPF, DKIM, and DMARC are email authentication methods used to help prevent email spoofing and phishing attacks. Here’s a basic overview of each:
@@ -32,7 +33,7 @@ Together, SPF, DKIM, and DMARC help protect against email fraud and ensure that 
 
 Before adding an SPF record, identify which mail servers are authorized to send emails for your domain. For Exchange Online, you generally need to include Microsoft’s SPF record. If you are in an Exchange hybrid deployment and have LOB on-premises applications, you will also need to add the public/egress IP of your organization to the SPF record. In addition, if you use bulk email services like SendGrid, then you'll need to add SendGrid IPs as well. 
 
-SPF is a TXT record in the DNS that specifies the authorized mail servers, example:
+SPF is a TXT record in the DNS that specifies the authorized mail servers, examples:
 
 ```
 _v=spf1 include:spf.protection.outlook.com -all_
