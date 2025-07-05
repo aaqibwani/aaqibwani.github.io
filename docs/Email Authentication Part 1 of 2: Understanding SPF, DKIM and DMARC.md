@@ -1,5 +1,5 @@
 ---
-title: Email Authentication Part 1 of 2: Understanding SPF, DKIM and DMARC
+title: Email Authentication Part 1 of 2 Understanding SPF, DKIM and DMARC
 nav_order: 7
 ---
 # Email Authentication Part 1 of 2: Understanding and setting up SPF, DKIM and DMARC in Exchange Online M365
