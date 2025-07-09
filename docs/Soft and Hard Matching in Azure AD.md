@@ -36,43 +36,57 @@ Once you've identified any accounts that failed to sync, you can run the followi
 
 1. Open Command Prompt in on-premises server, for the affected user run:
 
-> `$guid =(Get-ADUser $ADUser).Objectguid`
+```
+$guid =(Get-ADUser $ADUser).Objectguid
 
-> `$immutableID=[system.convert]::ToBase64String($guid.tobytearray())`
+$immutableID=[system.convert]::ToBase64String($guid.tobytearray())
+```
 
 2. Install and connect to MS Online:
 
-> `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
-> `Install-Module MSOnline`
+Install-Module MSOnline
 
-> `Connect-MsolService`
+Connect-MsolService
+```
 
 3. Delete the duplicate object which is synced from AD but not matched to the cloud object (not the cloud only account)
 
 4. Run the below for the affected user:
 
-> `Set-MsolUser -UserPrincipalName user@domain.com -ImmutableId $immutableID`
+```
+Set-MsolUser -UserPrincipalName user@domain.com -ImmutableId $immutableID
+```
 
 ### Disable Soft matching
 
 To disable soft matching, use the [Update-MgDirectoryOnPremiseSynchronization](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryonpremisesynchronization) Microsoft Graph PowerShell cmdlet:
 
-`Connect-MgGraph -Scopes "OnPremDirectorySynchronization.ReadWrite.All"`
+```
+Connect-MgGraph -Scopes "OnPremDirectorySynchronization.ReadWrite.All
 
-`$OnPremSync = Get-MgDirectoryOnPremiseSynchronization`
-`$OnPremSync.Features.BlockSoftMatchEnabled = $true`
-`Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $OnPremSync.Id -Features $OnPremSync.Features`
+$OnPremSync = Get-MgDirectoryOnPremiseSynchronization
+
+$OnPremSync.Features.BlockSoftMatchEnabled = $true
+
+Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $OnPremSync.Id -Features $OnPremSync.Features
+```
 
 ### Disable Hard matching
 
 To disable hard matching, use the [Update-MgDirectoryOnPremiseSynchronization](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryonpremisesynchronization) Microsoft Graph PowerShell cmdlet:
 
-`Connect-MgGraph -Scopes "OnPremDirectorySynchronization.ReadWrite.All"`
+```
+Connect-MgGraph -Scopes "OnPremDirectorySynchronization.ReadWrite.All
 
-`$OnPremSync = Get-MgDirectoryOnPremiseSynchronization`
-`$OnPremSync.Features.BlockCloudObjectTakeoverThroughHardMatchEnabled = $true`
-`Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $OnPremSync.Id -Features $OnPremSync.Features`
+$OnPremSync = Get-MgDirectoryOnPremiseSynchronization
+
+$OnPremSync.Features.BlockCloudObjectTakeoverThroughHardMatchEnabled = $true
+
+Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $OnPremSync.Id -Features $OnPremSync.Features
+```
 
 ### Other objects than users
 
@@ -86,6 +100,3 @@ To protect from untrusted on-premises users, Microsoft Entra ID won't match on-p
 2. Hard-delete the quarantined object in the cloud.
 3. Trigger a sync.
 4. Optionally, add the directory roles back to the user object in cloud once the matching is done.
-
-
-
