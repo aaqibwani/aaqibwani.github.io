@@ -78,8 +78,8 @@ Reboot the machine and login to the Domain:
 ![image](https://github.com/user-attachments/assets/712fe3ca-34b4-40e2-a0a4-3abb22a92839)
 
 At this point we are done with installing Active Directory with domain as idiotbox.com. We can now create the users or groups if required. We can now proceed with the installation of Exchange Server. 
-
-In case you already have ADDS setup with a different domain or have a .local domain, you can add the UPN suffix using AD Domains & Trusts as below, the important thing is that one of these domains needs to be verified in M365 as well. 
+{: .note }
+>In case you already have ADDS setup with a different domain or have a .local domain, you can add the UPN suffix using AD Domains & Trusts as below, the important thing is that one of these domains needs to be verified in M365 as well. 
 
 ![Screenshot 2024-11-01 145411](https://github.com/user-attachments/assets/d71bb1e2-15bd-46b8-a8de-addd377a58b2)
 
