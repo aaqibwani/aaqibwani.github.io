@@ -170,7 +170,8 @@ Connect-ExchangeOnline
 ```
 New-ApplicationAccessPolicy -AppId "your-app-client-id" -PolicyScopeGroupId "group@yourdomain.com" -AccessRight RestrictAccess -Description "Restrict app to specific mailboxes"
 ```
-_Use a user mailbox or a mail-enabled security group in PolicyScopeGroupId. For Shared mailboxes, add the Shared mailbox to a mail-enabled security group and use the group in PolicyScopeGroupId._
+{: .note }
+>Use a user mailbox or a mail-enabled security group in PolicyScopeGroupId. For Shared mailboxes, add the Shared mailbox to a mail-enabled security group and use the group in PolicyScopeGroupId.
 
 * Test the Application Policy
 
