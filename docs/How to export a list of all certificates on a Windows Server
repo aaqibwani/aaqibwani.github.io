@@ -1,0 +1,23 @@
+
+
+# How to export a list of all certificates on a Windows Server
+
+```
+$array = @()
+Get-ChildItem -Path Cert:\ -recurse | Where-Object {$_.PSISContainer -eq $false} | foreach-object ({
+$obj = New-Object -TypeName PSObject
+$obj | Add-Member -MemberType NoteProperty -Name “PSPath” -Value $_.PSPath
+$obj | Add-Member -MemberType NoteProperty -Name “FriendlyName” -Value $_.FriendlyName
+$obj | Add-Member -MemberType NoteProperty -Name “Issuer” -Value $_.Issuer
+$obj | Add-Member -MemberType NoteProperty -Name “NotAfter” -Value $_.NotAfter
+$obj | Add-Member -MemberType NoteProperty -Name “NotBefore” -Value $_.NotBefore
+$obj | Add-Member -MemberType NoteProperty -Name “SerialNumber” -Value $_.SerialNumber
+$obj | Add-Member -MemberType NoteProperty -Name “Thumbprint” -Value $_.Thumbprint
+$obj | Add-Member -MemberType NoteProperty -Name “DnsNameList” -Value $_.DnsNameList
+$obj | Add-Member -MemberType NoteProperty -Name “Subject” -Value $_.Subject
+$obj | Add-Member -MemberType NoteProperty -Name “Version” -Value $_.Version
+$array += $obj
+$obj = $null
+})
+$array | Export-Csv -Path “c:\temp\temp.csv” -NoTypeInformation
+```
