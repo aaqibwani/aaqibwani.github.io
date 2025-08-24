@@ -1,3 +1,8 @@
+---
+title: Manage TLS versions on a Windows Server using PowerShell
+nav_order: 14
+---
+
 ## Verify the TLS versions supported by a remote server
 
 ```
