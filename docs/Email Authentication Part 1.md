@@ -1,5 +1,5 @@
 ---
-title: Email Authentication: What is SPF, DKIM and DMARC and how to set it up in M365?
+title: Email Authentication: What is SPF, DKIM and DMARC and how to set it up in M365
 nav_order: 7
 ---
 # Email Authentication Part 1 of 2: What is SPF, DKIM and DMARC and how to set it up in M365?
