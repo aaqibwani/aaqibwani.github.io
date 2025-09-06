@@ -27,20 +27,20 @@ In the first part of this article, we understood what SPF, DKIM and DMARC are an
 
 <img width="1882" height="281" alt="image" src="https://github.com/user-attachments/assets/dc9087a9-9e9a-4cf9-a285-0451014bc639" />
 
-* Now if we check the Authentication-Results field, we see that SPAM, DKIM and DMARC all passed, which is good. But we also need to understand why and how they passed.
+* Now if we check the Authentication-Results field, we see that SPF, DKIM and DMARC all passed, which is good. But we also need to understand why and how they passed.
 
 Authentication-Results	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; dkim=pass (signature was verified) header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
 
 SPF:
 
-SPF passes when the connecting IP is present in the SPF record of the domain in the mailfrom address. Let's check the mailfrom domain and the SPF record of gmail.com
+SPF passes when the connecting IP is present in the SPF record of the domain in the mailfrom address. Let's check the mailfrom (Return-Path NOT "FROM address") domain and the SPF record of gmail.com
 
 <img width="602" height="50" alt="image" src="https://github.com/user-attachments/assets/d7976802-74d2-4089-a775-74a6c5158c28" />
 
 <img width="1423" height="191" alt="image" src="https://github.com/user-attachments/assets/c86d5639-5886-40e9-abae-ce3b2e2e3281" />
 
 
-As we can see the mailfrom domain gmail.com has the IPv6 subnet 2a00:1450:4000::/36 mentioned which includes the 2a00:1450:4864:20::630 IPv6 address, hence SPF passes.
+As we can see the mailfrom domain is gmail.com and we we do a SPF lookup on it using MXtoolbox, it has the IPv6 subnet 2a00:1450:4000::/36 mentioned which includes the 2a00:1450:4864:20::630 IPv6 address, _hence SPF passes_.
 
 DKIM:
 
