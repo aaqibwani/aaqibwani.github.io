@@ -1,8 +1,8 @@
 ---
-title: Email Authentication - Understanding SPF, DKIM and DMARC
+title: Email Authentication: What is SPF, DKIM and DMARC and how to set it up in M365?
 nav_order: 7
 ---
-# Email Authentication Part 1 of 2: Understanding and setting up SPF, DKIM and DMARC in Exchange Online M365
+# Email Authentication Part 1 of 2: What is SPF, DKIM and DMARC and how to set it up in M365?
 
 ## What is Email Authentication and why we need it?
 Email authentication is like a security check for emails. Just as you show an ID to prove who you are, email authentication helps prove that an email is really from the person or company it says it's from. When you get an email, you want to be sure it's from a trusted source, not a scammer pretending to be someone else. Email authentication helps with this by checking the email's "ID" using several methods. If the email passes the check, it's more likely to be genuine. If it fails, it might be a fake or spam email.
