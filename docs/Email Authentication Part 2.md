@@ -1,4 +1,4 @@
-<img width="1423" height="191" alt="image" src="https://github.com/user-attachments/assets/acfd2bea-5453-4aeb-8497-726c2b5131f4" />---
+---
 title: Email Authentication - Troubleshooting Email Authentication issues
 nav_order: 8
 ---
@@ -38,6 +38,7 @@ SPF passes when the connecting IP is present in the SPF record of the domain in 
 <img width="602" height="50" alt="image" src="https://github.com/user-attachments/assets/d7976802-74d2-4089-a775-74a6c5158c28" />
 
 <img width="1423" height="191" alt="image" src="https://github.com/user-attachments/assets/c86d5639-5886-40e9-abae-ce3b2e2e3281" />
+
 
 As we can see the mailfrom domain gmail.com has the IPv6 subnet 2a00:1450:4000::/36 mentioned which includes the 2a00:1450:4864:20::630 IPv6 address, hence SPF passes.
 
