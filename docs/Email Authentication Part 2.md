@@ -2,14 +2,15 @@
 title: Email Authentication - Troubleshooting Email Authentication issues
 nav_order: 8
 ---
-# Troubleshooting Email Authentication issues
+# Email Authentication Part 2 of 2: Troubleshooting Email Authentication issues
 
-On a high level, email authentication issues can happen when:
+Since the emails can be either outbound or inbound, there can be 2 scenarios:
 
-* You are sending emails to external recipients and the external recipients email server rejects/quarantines it OR
-* You are receiving emails from external recipients and your mail server rejects/quarantines it
+* Outbound: You are sending emails to external recipients and the external recipients email server rejects, quarantines or sends the email to the SPAM/JUNK folder
+* Inbound: You are receiving emails from external recipients and your mail server rejects, quarantines or sends the email to the SPAM/JUNK folder
 
-In both the above cases, the first and the foremost thing with respect to Exchange Online is analyzing the Message trace. For the purpose of email authentication issues, you might not need extended message trace details to find the cause of the issue. 
+In the first part of this article, we understood what SPF, DKIM and DMARC are. 
+In both the above cases, the first and the foremost thing is analyzing the Message trace.  
 
 Go to the Exchange Admin Center and under Mail Flow perform a message trace and check what happened to the email. Let's suppose the email was quarantined. We have an option to open the email in Explorer (Defender for O365) and look for the Detection technology involved (in case the email is quarantined because of other reasons than Email authentication failures). 
 
