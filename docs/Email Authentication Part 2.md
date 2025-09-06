@@ -1,4 +1,4 @@
----
+<img width="1423" height="191" alt="image" src="https://github.com/user-attachments/assets/acfd2bea-5453-4aeb-8497-726c2b5131f4" />---
 title: Email Authentication - Troubleshooting Email Authentication issues
 nav_order: 8
 ---
@@ -9,7 +9,42 @@ Since the emails can be either outbound or inbound, there can be 2 scenarios:
 * Outbound: You are sending emails to external recipients and the external recipients email server rejects, quarantines or sends the email to the SPAM/JUNK folder
 * Inbound: You are receiving emails from external recipients and your mail server rejects, quarantines or sends the email to the SPAM/JUNK folder
 
-In the first part of this article, we understood what SPF, DKIM and DMARC are. 
+In the first part of this article, we understood what SPF, DKIM and DMARC are and how the Anti-Spam agents on the mail servers determine if SPF, DKIM or DMARC PASS or FAIL. Let's now understand them with an example:
+
+* I use M365 and have a domain idiotbox.in added in my M365 tenant
+* The MX is pointed to M365
+* I sent an email from my gmail account to my M365 account
+* Since, gmail is managed by Google, the corresponding SPF, DKIM and DMARC records are also managed by Google
+* I received the email in my Inbox and copied the messahe headers and pasted them in https://mha.azurewebsites.net/ to analyze, let's see what we find:
+
+<img width="1827" height="435" alt="image" src="https://github.com/user-attachments/assets/24849a0e-af39-4f05-bef0-af2ab73718d1" />
+
+* We see the the email was sent by Google mail server with IP address 2a00:1450:4864:20::630 to M365
+
+<img width="1526" height="378" alt="image" src="https://github.com/user-attachments/assets/add3354b-ceca-432f-8b1d-d157e1719c31" />
+
+* Here we see that the SCL value set by EOP was 1 (Not SPAM) and SPAM filtering verdict was NSPM (Not SPAM). And we also see the connecting IP correctly set as the IP of the original sender.
+
+<img width="1882" height="281" alt="image" src="https://github.com/user-attachments/assets/dc9087a9-9e9a-4cf9-a285-0451014bc639" />
+
+* Now if we check the Authentication-Results field, we see that SPAM, DKIM and DMARC all passed, which is good. But we also need to understand why and how they passed.
+
+Authentication-Results	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; dkim=pass (signature was verified) header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
+
+SPF:
+
+SPF passes when the connecting IP is present in the SPF record of the domain in the mailfrom address. Let's check the mailfrom domain and the SPF record of gmail.com
+
+<img width="602" height="50" alt="image" src="https://github.com/user-attachments/assets/d7976802-74d2-4089-a775-74a6c5158c28" />
+
+<img width="1423" height="191" alt="image" src="https://github.com/user-attachments/assets/c86d5639-5886-40e9-abae-ce3b2e2e3281" />
+
+As we can see the mailfrom domain gmail.com has the IPv6 subnet 2a00:1450:4000::/36 mentioned which includes the 2a00:1450:4864:20::630 IPv6 address, hence SPF passes.
+
+DKIM:
+
+
+
 In both the above cases, the first and the foremost thing is analyzing the Message trace.  
 
 Go to the Exchange Admin Center and under Mail Flow perform a message trace and check what happened to the email. Let's suppose the email was quarantined. We have an option to open the email in Explorer (Defender for O365) and look for the Detection technology involved (in case the email is quarantined because of other reasons than Email authentication failures). 
