@@ -29,11 +29,11 @@ In the first part of this article, we understood what SPF, DKIM and DMARC are an
 
 * Now if we check the Authentication-Results field, we see that SPF, DKIM and DMARC all passed, which is good. But we also need to understand why and how they passed.
 
-Authentication-Results	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; dkim=pass (signature was verified) header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
-
-SPF:
+### SPF:
 
 SPF passes when the connecting IP is present in the SPF record of the domain in the mailfrom address. Let's check the mailfrom (Return-Path NOT "FROM address") domain and the SPF record of gmail.com
+
+Authentication-Results:	**spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com**; dkim=pass (signature was verified) header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
 
 <img width="602" height="50" alt="image" src="https://github.com/user-attachments/assets/d7976802-74d2-4089-a775-74a6c5158c28" />
 
@@ -42,7 +42,17 @@ SPF passes when the connecting IP is present in the SPF record of the domain in 
 
 As we can see the mailfrom domain is gmail.com and we we do a SPF lookup on it using MXtoolbox, it has the IPv6 subnet 2a00:1450:4000::/36 mentioned which includes the 2a00:1450:4864:20::630 IPv6 address, _hence SPF passes_.
 
-DKIM:
+### DKIM:
+
+When the sender sends the email, a hash is calculated based on the email properties (From, Subject, Body, etc.) using a private key and when the recipient server receives the email, it also calculates the hash but based on the public key mentioned in the DKIM record. If the hash matches, DKIM passes.
+
+DKIM is used to verifiy the integrity of the email to ensure that the email has not been tampered with. There are common scenarios which cause DKIM to fail, example a email filtering gateway between the sender and the recipient that modifies the subject or the body of the email to either add "EXTERNAL" in the subject line or include a disclaimer in the email. 
+
+However, in our case the email was sent directly from the sender to the recipient and there was no modification of any of the email properties, hence DKIM passes. 
+
+Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; **dkim=pass (signature was verified) header.d=gmail.com**;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
+
+### DMARC:
 
 
 
