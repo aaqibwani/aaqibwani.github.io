@@ -73,6 +73,7 @@ Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mail
 As we can see from the Authentication Results, DMARC passed and action=none. Since both SPF/SPF alignment and DKIM/DKIM alignment passed, it was evident that DMARC will pass. We know how SPF and DKIM pass, let's also take a closer look at how SPF and DKIM alignment pass:
 
 * SPF alignment:
+  
 The domain in the mailfrom address should match the domain in the from address:
 
  <img width="1882" height="281" alt="image" src="https://github.com/user-attachments/assets/f3cd66da-ec2a-46c5-9847-e0b1a7cd700e" />
@@ -80,6 +81,7 @@ The domain in the mailfrom address should match the domain in the from address:
 <img width="901" height="223" alt="image" src="https://github.com/user-attachments/assets/fab772a1-6161-4bee-96af-cbcd4ce59e30" />
 
 * DKIM alignment:
+  
 The domain in the header.d should match the from domain:
 
 <img width="1882" height="153" alt="image" src="https://github.com/user-attachments/assets/e0a56e3f-c6f6-405d-aac4-33485f9cc189" />
