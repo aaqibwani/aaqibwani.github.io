@@ -90,9 +90,11 @@ The domain in the header.d should match the from domain:
 
 The sender's DMARC record defines what to do with the emails sent from their domain that fail DMARC. This is defined by the <p> tag.
 
+<img width="1433" height="332" alt="image" src="https://github.com/user-attachments/assets/4a775654-79b2-4470-8088-6f91d658882a" />
+
 * If p=reject, it means that the sender wants the recipient to reject any emails that fail DMARC
 * If p=quarantine, it means that the sender wants the recipient to quarantine any emails that fail DMARC
-* If p=none, it means to do nothing
+* If p=none, it means to do nothing, up to the receiving mail server how it wants to process it
 
 {: .important }
 > It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to senf the emails to quarantine even though the sender has set the tag as p=reject. 
