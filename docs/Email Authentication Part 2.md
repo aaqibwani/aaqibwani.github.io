@@ -31,7 +31,7 @@ In the first part of this article, we understood what SPF, DKIM and DMARC are an
 
 ### SPF:
 
-SPF passes when the connecting IP is present in the SPF record of the domain in the mailfrom address. Let's check the mailfrom (Return-Path NOT "FROM address") domain and the SPF record of gmail.com
+SPF is used to verify if the mail server is authorized to send emails from the sender domain. SPF passes when the connecting IP is present in the SPF record of the mailfrom domain. Let's check the mailfrom (Return-Path NOT "FROM address") domain and the SPF record of gmail.com
 
 Authentication-Results:	**spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com**; dkim=pass (signature was verified) header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
 
@@ -44,17 +44,56 @@ As we can see the mailfrom domain is gmail.com and we we do a SPF lookup on it u
 
 ### DKIM:
 
-When the sender sends the email, a hash is calculated based on the email properties (From, Subject, Body, etc.) using a private key and when the recipient server receives the email, it also calculates the hash but based on the public key mentioned in the DKIM record. If the hash matches, DKIM passes.
-
-DKIM is used to verifiy the integrity of the email to ensure that the email has not been tampered with. There are common scenarios which cause DKIM to fail, example a email filtering gateway between the sender and the recipient that modifies the subject or the body of the email to either add "EXTERNAL" in the subject line or include a disclaimer in the email. 
-
-However, in our case the email was sent directly from the sender to the recipient and there was no modification of any of the email properties, hence DKIM passes. 
+DKIM is used to verifiy the integrity of the email to ensure that the email has not been tampered with. When the sender sends the email, a hash is calculated based on the email properties (From, Subject, Body, etc.) using a private key and when the recipient server receives the email, it also calculates the hash but based on the public key mentioned in the DKIM record. If the hash matches, DKIM passes.
 
 Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; **dkim=pass (signature was verified) header.d=gmail.com**;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
 
+As we can see from Authentication Results header, DKIM passed and if we look in the DKIM Signature header, we can see the email was signed with selector 20230601. If we do a DKIM lookup using this selector, we will find the corresponsing DKIM record in the DNS:
+
+<img width="1882" height="281" alt="image" src="https://github.com/user-attachments/assets/11ad80c1-124f-4cc1-b1a8-0b3fcab84a5c" />
+
+<img width="1447" height="355" alt="image" src="https://github.com/user-attachments/assets/92f023c7-210b-4ca6-af38-8533cf61de48" />
+
+Note:
+There are common scenarios which cause DKIM to fail, example a email filtering gateway between the sender and the recipient that modifies the subject or the body of the email to either add "EXTERNAL" in the subject line or include a disclaimer in the email. However, in our case the email was sent directly from the sender to the recipient and there was no modification of any of the email properties, hence DKIM passes. 
+
+
 ### DMARC:
 
+DMARC builds on SPF and DKIM. DMARC passes if either:
 
+* SPF passes AND SPF alignment passes
+
+     (OR)
+  
+* DKIM passes AND DKIM alignment passes
+
+Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; **dkim=pass (signature was verified) header.d=gmail.com**;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
+
+As we can see from the Authentication Results, DMARC passed and action=none. Since both SPF/SPF alignment and DKIM/DKIM alignment passed, it was evident that DMARC will pass. We know how SPF and DKIM pass, let's also take a closer look at how SPF and DKIM alignment pass:
+
+* SPF alignment:
+The domain in the mailfrom address should match the domain in the from address:
+
+ <img width="1882" height="281" alt="image" src="https://github.com/user-attachments/assets/f3cd66da-ec2a-46c5-9847-e0b1a7cd700e" />
+
+<img width="901" height="223" alt="image" src="https://github.com/user-attachments/assets/fab772a1-6161-4bee-96af-cbcd4ce59e30" />
+
+* DKIM alignment:
+The domain in the header.d should match the from domain:
+
+<img width="1882" height="153" alt="image" src="https://github.com/user-attachments/assets/e0a56e3f-c6f6-405d-aac4-33485f9cc189" />
+
+<img width="901" height="223" alt="image" src="https://github.com/user-attachments/assets/56f4185d-1ecc-4ea7-8165-e028a9da9b95" />
+
+The sender's DMARC record defines what to do with the emails sent from their domain that fail DMARC. This is defined by the <p> tag.
+
+* If p=reject, it means that the sender wants the recipient to reject any emails that fail DMARC
+* If p=quarantine, it means that the sender wants the recipient to quarantine any emails that fail DMARC
+* If p=none, it means to do nothing
+
+Note:
+It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to senf the emails to quarantine even though the sender has set the tag as p=reject. 
 
 In both the above cases, the first and the foremost thing is analyzing the Message trace.  
 
