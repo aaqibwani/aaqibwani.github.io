@@ -68,7 +68,7 @@ DMARC builds on SPF and DKIM. DMARC passes if either:
   
 * DKIM passes AND DKIM alignment passes
 
-Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; **dkim=pass (signature was verified) header.d=gmail.com**;dmarc=pass action=none header.from=gmail.com;compauth=pass reason=100
+Authentication-Results:	spf=pass (sender IP is 2a00:1450:4864:20::630) smtp.mailfrom=gmail.com; dkim=pass (signature was verified) header.d=gmail.com;**dmarc=pass action=none** header.from=gmail.com;compauth=pass reason=100
 
 As we can see from the Authentication Results, DMARC passed and action=none. Since both SPF/SPF alignment and DKIM/DKIM alignment passed, it was evident that DMARC will pass. We know how SPF and DKIM pass, let's also take a closer look at how SPF and DKIM alignment pass:
 
