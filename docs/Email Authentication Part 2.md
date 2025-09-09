@@ -97,11 +97,12 @@ The sender's DMARC record defines what to do with the emails sent from their dom
 * If p=none, it means to do nothing, up to the receiving mail server how it wants to process it
 
 {: .important }
-> It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to senf the emails to quarantine even though the sender has set the tag as p=reject. 
+> It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to send the emails to quarantine even though the sender has set the tag as p=reject. 
 
-In both the above cases, the first and the foremost thing is analyzing the Message trace.  
+## Troubleshooting using Defender for O365
+The first thing while troublehsooting any mail flow related issue is analyzing the Message trace.  
 
-Go to the Exchange Admin Center and under Mail Flow perform a message trace and check what happened to the email. Let's suppose the email was quarantined. We have an option to open the email in Explorer (Defender for O365) and look for the Detection technology involved (in case the email is quarantined because of other reasons than Email authentication failures). 
+* Go to the Exchange Admin Center and under Mail Flow perform a message trace and check what happened to the email. Let's suppose the email was quarantined. We have an option to open the email in Explorer (Defender for O365) and look for the Detection technology involved (in case the email is quarantined because of other reasons than Email authentication failures). 
 
 ![Screenshot 2024-08-24 145946](https://github.com/user-attachments/assets/97df3f78-11af-43cc-b6e3-f3f51c202307)
 
