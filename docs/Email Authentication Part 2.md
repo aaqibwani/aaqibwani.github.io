@@ -54,8 +54,8 @@ As we can see from Authentication Results header, DKIM passed and if we look in 
 
 <img width="1447" height="355" alt="image" src="https://github.com/user-attachments/assets/92f023c7-210b-4ca6-af38-8533cf61de48" />
 
-Note:
-There are common scenarios which cause DKIM to fail, example a email filtering gateway between the sender and the recipient that modifies the subject or the body of the email to either add "EXTERNAL" in the subject line or include a disclaimer in the email. However, in our case the email was sent directly from the sender to the recipient and there was no modification of any of the email properties, hence DKIM passes. 
+{: .important }
+> There are common scenarios which cause DKIM to fail, example a email filtering gateway between the sender and the recipient that modifies the subject or the body of the email to either add "EXTERNAL" in the subject line or include a disclaimer in the email. However, in our case the email was sent directly from the sender to the recipient and there was no modification of any of the email properties, hence DKIM passes. 
 
 
 ### DMARC:
@@ -94,8 +94,8 @@ The sender's DMARC record defines what to do with the emails sent from their dom
 * If p=quarantine, it means that the sender wants the recipient to quarantine any emails that fail DMARC
 * If p=none, it means to do nothing
 
-Note:
-It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to senf the emails to quarantine even though the sender has set the tag as p=reject. 
+{: .important }
+> It is important to note that these verdicts in the sender's DMARC are only guidelines, the authority still lies with the recipient if they want to reject or quarantine the emails, example, the recipient can define the policy at their end to senf the emails to quarantine even though the sender has set the tag as p=reject. 
 
 In both the above cases, the first and the foremost thing is analyzing the Message trace.  
 
