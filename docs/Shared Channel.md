@@ -1,3 +1,8 @@
+---
+title: Enable and use Shared Channels in Teams
+nav_order: 15
+---
+
 # Enable and use Shared Channels in Teams
 
 A Shared Channel in Microsoft Teams is a special type of channel that allows you to collaborate with people inside and outside your organization without needing to switch tenants or add them as guests.
