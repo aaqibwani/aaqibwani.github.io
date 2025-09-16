@@ -15,7 +15,7 @@ A Shared Channel in Microsoft Teams is a special type of channel that allows you
 <img width="1200" height="500" alt="image" src="https://github.com/user-attachments/assets/26064845-5094-4be5-a801-7cea5d64f3e5" />
 
 
-* Enabled Guest access from the Teams Admin portal where the shared channel is to be created:
+* Enable Guest access from the Teams Admin portal where the shared channel is to be created:
 
 <img width="1000" height="400" alt="image" src="https://github.com/user-attachments/assets/0f995744-a1aa-4147-a5e3-d4ca16aaef30" />
 
