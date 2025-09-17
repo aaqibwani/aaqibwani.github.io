@@ -114,3 +114,15 @@ To create a Shared Channel, you need to be the Team owner. Follow the below step
 
 <img width="628" height="583" alt="image" src="https://github.com/user-attachments/assets/fe91c4e5-24d9-4f1d-ad34-26bd1cd1b135" />
 
+## Behavior with DLP
+
+Admins can apply Microsoft Purview DLP policies to a team where all channels, including shared channels, inherit the policy. Shared channels inherit the policy of the host organization.
+
+* When Sensitive content is shared directly in the shared channel chat:
+
+<img width="1442" height="506" alt="image" src="https://github.com/user-attachments/assets/368bd750-6253-48a7-9ca1-41119cf6770a" />
+
+* When document(s) with Sensitive data is shared in the shared channel:
+
+<img width="1007" height="497" alt="image" src="https://github.com/user-attachments/assets/3a453922-b3e7-4341-a718-a17308df19fb" />
+
