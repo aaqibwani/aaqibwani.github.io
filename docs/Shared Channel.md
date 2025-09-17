@@ -97,6 +97,10 @@ To configure outbound settings for an organization
 
 <img width="900" height="600" alt="image" src="https://github.com/user-attachments/assets/e5ce19fe-f185-4bd2-bfef-27f8126bdbfb" />
 
+{: .note }
+> It can take upto 6 hours for the cross-tenant access settings to take effect.
+
+
 ## Create a Shared Channel
 
 To create a Shared Channel, you need to be the Team owner. Follow the below steps:
