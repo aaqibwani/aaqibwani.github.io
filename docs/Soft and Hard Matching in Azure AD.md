@@ -106,8 +106,9 @@ For mail-enabled groups and contacts, you can soft match based on proxyAddresses
 
 {: .note-title }
 > Admin role considerations
+> 
 > To protect from untrusted on-premises users, Microsoft Entra ID won't match on-premises users with cloud users that have an admin role. This behavior is by default. To work around this, you can do the following steps:
-
+>
 > 1. Remove the directory roles from the cloud-only user object.
 > 2. Hard-delete the quarantined object in the cloud.
 > 3. Trigger a sync.
