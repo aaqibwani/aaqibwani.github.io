@@ -42,6 +42,10 @@ $guid =(Get-ADUser $ADUser).Objectguid
 $immutableID=[system.convert]::ToBase64String($guid.tobytearray())
 ```
 
+{: .note }
+> The on-premises object values are GUIDs, whereas Microsoft Entra ID is a base64 encoded text string. So, you have to convert the GUID to Base64 string.
+
+
 2. Install and connect to MS Online:
 
 ```
@@ -58,6 +62,14 @@ Connect-MsolService
 
 ```
 Set-MsolUser -UserPrincipalName user@domain.com -ImmutableId $immutableID
+```
+
+MS Graph
+
+```
+Get-MgUser -UserId "user@domain.com" -Property OnPremisesImmutableId, UserPrincipalName | Format-List UserPrincipalName, OnPremisesImmutableId
+
+Update-MgUser -UserId "user@domain.com" -OnPremisesImmutableId $immutableID
 ```
 
 ### Disable Soft matching
@@ -92,11 +104,11 @@ Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId
 
 For mail-enabled groups and contacts, you can soft match based on proxyAddresses. Hard match isn't applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there's currently no support for soft match or hard match.
 
-### Admin role considerations
+{: .note-title }
+> Admin role considerations
+> To protect from untrusted on-premises users, Microsoft Entra ID won't match on-premises users with cloud users that have an admin role. This behavior is by default. To work around this, you can do the following steps:
 
-To protect from untrusted on-premises users, Microsoft Entra ID won't match on-premises users with cloud users that have an admin role. This behavior is by default. To work around this, you can do the following steps:
-
-1. Remove the directory roles from the cloud-only user object.
-2. Hard-delete the quarantined object in the cloud.
-3. Trigger a sync.
-4. Optionally, add the directory roles back to the user object in cloud once the matching is done.
+> 1. Remove the directory roles from the cloud-only user object.
+> 2. Hard-delete the quarantined object in the cloud.
+> 3. Trigger a sync.
+> 4. Optionally, add the directory roles back to the user object in cloud once the matching is done.
