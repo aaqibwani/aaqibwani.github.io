@@ -108,13 +108,19 @@ Here let's take an example of an Exchange Engineer who needs the Exchange Admin 
 
 ### Validation
 
+* Go to the [Defender Portal](https://security.microsoft.com) > Email & Collaboration > Explorer 
 
-* Behavior with Exchange Admin role but without PIM for Group:
+* Select an email > Take Action
 
-<img width="1600" height="600" alt="Screenshot 2025-10-14 172540" src="https://github.com/user-attachments/assets/44a4c5ed-57db-4387-8f74-652055fb7a4c" />
+* Review the options as below:
+ 
+### * Behavior with Exchange Admin role but without PIM for Group:
+
+<img width="1200" height="720" alt="Screenshot 2025-10-16 171414" src="https://github.com/user-attachments/assets/6a331260-95f0-4cae-8b48-5378bc1a2a4e" />
 
 
-* Behavior with Exchange Admin role AND with PIM for Group:
+### * Behavior with Exchange Admin role AND with PIM for Group:
 
-<img width="1600" height="600" alt="Screenshot 2025-10-15 180844" src="https://github.com/user-attachments/assets/18b106cc-3e6b-4ecf-8991-702f1b125235" />
+<img width="1200" height="720" alt="Screenshot 2025-10-16 224640" src="https://github.com/user-attachments/assets/9f93cb7d-122a-4f66-bf81-609e1c5811f6" />
+
 
