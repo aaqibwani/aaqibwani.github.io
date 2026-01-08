@@ -1,7 +1,8 @@
 ---
-title: Use Privileged Identity Management (PIM) for Groups
+title: How to Implement Self‐Service Password Reset (SSPR) in Microsoft Entra ID
 nav_order: 17
 ---
+# How to Implement Self‐Service Password Reset (SSPR) in Microsoft Entra ID
 
 Managing password reset requests is one of the biggest burdens on IT helpdesks. **Self-Service Password Reset (SSPR)** allows users to reset or unlock their own passwords securely without calling IT.
 
