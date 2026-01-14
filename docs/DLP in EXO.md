@@ -1,6 +1,6 @@
 ---
 title: How to implement a DLP policy in Exchange Online
-parent: DLP
+parent: DLP in M365
 nav_order: 1
 ---
 
