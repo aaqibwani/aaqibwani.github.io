@@ -1,5 +1,5 @@
 ---
-title: How to Implement DLP in M365
+title: DLP in M365
 nav_order: 18
 ---
 
