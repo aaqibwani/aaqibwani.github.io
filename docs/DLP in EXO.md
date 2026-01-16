@@ -65,7 +65,8 @@ We will create 3 rules in this policy:
 5. Set the Rule priority to 2 > Save
 
 
-Note: **Policy Tips**: These are small banners that appear at the top of an Outlook email *while the user is typing*, alerting them to the sensitive content before they even hit "Send."
+{: .note }
+> **Policy Tips**: These are small banners that appear at the top of an Outlook email *while the user is typing*, alerting them to the sensitive content before they even hit "Send."
 
 Below is how the rules will look like once you're done:
 
@@ -142,7 +143,8 @@ While Activity Explorer is for deep forensic research, the Alerts option is your
 
 <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/512b9090-9a3e-481a-81b2-bda6f70030d5" />
 
-Note: Access to sensitive data should follow the Principle of Least Privilege. When required it should be provided to Privacy & Compliance Officers, Tier 2 or Tier 3 SOC analysts or Legal Counsel only.
+{: .note }
+> Access to sensitive data should follow the Principle of Least Privilege. When required it should be provided to Privacy & Compliance Officers, Tier 2 or Tier 3 SOC analysts or Legal Counsel only.
 
 ---
 
