@@ -3,9 +3,13 @@ title: Export a list of all Enterprise Applications with their permissions from 
 nav_order: 19
 ---
 
+# Export a list of all Enterprise Applications with their permissions from Entra ID
+
 Exporting a list of enterprise applications and their permissions helps organizations clearly see **which apps can access their data and how**. Many integrations run quietly in the background with powerful access, so having this inventory makes it easier to spot security risks, clean up old or unused apps, and make sure permissions follow the principle of least privilege. 
 
 It’s especially useful for catching **high‑risk permissions**—such as **Directory.ReadWrite.All**, **User.ReadWrite.All**, **Group.ReadWrite.All**, or **Application.ReadWrite.All**, which allow tenant‑wide changes without a user, and data‑sensitive access like **Mail.Read**, **Mail.ReadWrite**, **Files.Read.All**, or **Files.ReadWrite.All**, which expose emails and files across the organization. In practice, this export supports security reviews, admin‑consent decisions, audits, and incident response by turning app access into something visible, understandable, and actionable instead of an unseen risk.
+
+# Steps
 
 * Install the Graph PowerShell Module
 ```
@@ -13,6 +17,7 @@ Install-Module Microsoft.Graph -Scope CurrentUser
 ```
 
 * Save the below script in .ps1 example GetEnterpriseAppPermissions_Aggregated.ps1
+
 ```
 # Optional workaround if you have WAM auth issues:
 # $env:MSAL_USE_WAM = "false"
@@ -201,7 +206,7 @@ Write-Host "Export complete:" $outFile
 .\GetEnterpriseAppPermissions_Aggregated.ps1
 ```
 
-* Output:
+# Output:
 
 <img width="1800" height="500" alt="image" src="https://github.com/user-attachments/assets/c9947e17-4d83-47f5-a18a-b82f1ac81f12" />
 
