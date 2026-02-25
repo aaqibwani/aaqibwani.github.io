@@ -12,6 +12,7 @@ It’s especially useful for catching **high‑risk permissions**—such as **Di
 # Steps
 
 * Install the Graph PowerShell Module
+
 ```
 Install-Module Microsoft.Graph -Scope CurrentUser
 ```
