@@ -1,3 +1,8 @@
+---
+title: Export a list of all Enterprise Applications with their permissions from Entra ID
+nav_order: 19
+---
+
 Exporting a list of enterprise applications and their permissions helps organizations clearly see **which apps can access their data and how**. Many integrations run quietly in the background with powerful access, so having this inventory makes it easier to spot security risks, clean up old or unused apps, and make sure permissions follow the principle of least privilege. 
 
 It’s especially useful for catching **high‑risk permissions**—such as **Directory.ReadWrite.All**, **User.ReadWrite.All**, **Group.ReadWrite.All**, or **Application.ReadWrite.All**, which allow tenant‑wide changes without a user, and data‑sensitive access like **Mail.Read**, **Mail.ReadWrite**, **Files.Read.All**, or **Files.ReadWrite.All**, which expose emails and files across the organization. In practice, this export supports security reviews, admin‑consent decisions, audits, and incident response by turning app access into something visible, understandable, and actionable instead of an unseen risk.
